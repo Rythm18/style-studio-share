@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,10 +68,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wardrobe: {
-					'primary': '#FEF3E2',
-					'secondary': '#FAB12F',
-					'accent': '#FA812F',
-					'highlight': '#FA4032',
+					'primary': '#DCD7C9',
+					'secondary': '#A27B5C',
+					'accent': '#3F4F44',
+					'highlight': '#2C3930',
 					'50': '#f8f9fa',
 					'100': '#f1f3f5',
 					'200': '#e9ecef',
