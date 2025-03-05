@@ -24,30 +24,37 @@ export default {
 				display: ['Manrope', 'sans-serif'],
 			},
 			colors: {
+				// Updated modern color palette
+				primary: {
+					DEFAULT: '#2C3639',
+					light: '#3F4E4F',
+					dark: '#1A1D1E',
+					foreground: '#FFFFFF'
+				},
+				secondary: {
+					DEFAULT: '#A27B5C',
+					light: '#DFD3C3',
+					dark: '#876548',
+					foreground: '#FFFFFF'
+				},
+				accent: {
+					DEFAULT: '#DCD7C9',
+					light: '#F5F5F0',
+					dark: '#C2BDB1',
+					foreground: '#2C3639'
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

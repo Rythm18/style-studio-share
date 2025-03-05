@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import TabBar from '../components/TabBar';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }: any) => {
   // State for active tab
   const [activeTab, setActiveTab] = useState('posts');
   
@@ -164,7 +165,11 @@ const ProfileScreen = () => {
         {activeTab === 'collections' && (
           <View style={styles.collectionsContainer}>
             {collections.map((collection) => (
-              <TouchableOpacity key={collection.id} style={styles.collectionCard}>
+              <TouchableOpacity 
+                key={collection.id} 
+                style={styles.collectionCard}
+                onPress={() => navigation.navigate('Collection', { id: collection.id })}
+              >
                 <Image source={{ uri: collection.image }} style={styles.collectionImage} />
                 <View style={styles.collectionInfo}>
                   <Text style={styles.collectionName}>{collection.name}</Text>
@@ -184,6 +189,8 @@ const ProfileScreen = () => {
           </View>
         )}
       </ScrollView>
+      
+      <TabBar activeTab="profile" navigation={navigation} />
     </SafeAreaView>
   );
 };

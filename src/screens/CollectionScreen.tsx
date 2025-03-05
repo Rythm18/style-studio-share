@@ -167,7 +167,7 @@ const CollectionScreen = ({ route, navigation }: CollectionScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEF3E2',
+    backgroundColor: '#DCD7C9',
   },
   coverImageContainer: {
     height: 260,
@@ -216,17 +216,17 @@ const styles = StyleSheet.create({
   },
   byText: {
     fontSize: 12,
-    color: '#868e96',
+    color: '#3F4F44',
   },
   authorName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#343a40',
+    color: '#2C3930',
   },
   collectionDescription: {
     fontSize: 16,
     lineHeight: 24,
-    color: '#495057',
+    color: '#3F4F44',
     marginBottom: 20,
   },
   statsSection: {
@@ -243,11 +243,11 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FA812F',
+    color: '#A27B5C',
   },
   statLabel: {
     fontSize: 12,
-    color: '#868e96',
+    color: '#3F4F44',
     marginTop: 2,
   },
   actionButtons: {

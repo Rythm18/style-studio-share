@@ -1,11 +1,11 @@
 
-import { AppRegistry } from 'react-native';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import App from './App';
+import './index.css';
 
-// Register the app
-AppRegistry.registerComponent('Wardrobify', () => App);
-
-// For web compatibility
-AppRegistry.runApplication('Wardrobify', {
-  rootTag: document.getElementById('root')
-});
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

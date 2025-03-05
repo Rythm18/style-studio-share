@@ -1,7 +1,10 @@
-
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import WelcomeHeader from '../components/WelcomeHeader';
+import FeaturedCollection from '../components/FeaturedCollection';
+import FeedItem from '../components/FeedItem';
+import TabBar from '../components/TabBar';
 
 const HomeScreen = ({ navigation }: any) => {
   // Sample data for our collections
@@ -60,42 +63,22 @@ const HomeScreen = ({ navigation }: any) => {
     },
   ];
 
+  const handleCollectionPress = (id: number) => {
+    navigation.navigate('Collection', { id });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.welcomeSection}>
-          <Text style={styles.welcomeTitle}>Discover Your Style</Text>
-          <Text style={styles.welcomeSubtitle}>Explore trending outfits and collections</Text>
-        </View>
+        <WelcomeHeader 
+          title="Discover Your Style" 
+          subtitle="Explore trending outfits and collections" 
+        />
         
-        <View style={styles.featuredSection}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Featured Collections</Text>
-            <TouchableOpacity>
-              <Text style={styles.seeAllText}>See All</Text>
-            </TouchableOpacity>
-          </View>
-          
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
-            {collections.map((item) => (
-              <TouchableOpacity 
-                key={item.id} 
-                style={styles.collectionCard}
-                onPress={() => navigation.navigate('Collection', { id: item.id })}
-              >
-                <View style={styles.collectionImageContainer}>
-                  <Image 
-                    source={{ uri: item.image }} 
-                    style={styles.collectionImage} 
-                  />
-                  <View style={styles.collectionGradient} />
-                </View>
-                <Text style={styles.collectionName}>{item.name}</Text>
-                <Text style={styles.collectionAuthor}>by {item.author}</Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
+        <FeaturedCollection 
+          collections={collections} 
+          onPress={handleCollectionPress} 
+        />
         
         <View style={styles.feedSection}>
           <View style={styles.sectionHeader}>
@@ -106,63 +89,12 @@ const HomeScreen = ({ navigation }: any) => {
           </View>
           
           {feedItems.map((item) => (
-            <View key={item.id} style={styles.feedItem}>
-              <View style={styles.feedItemHeader}>
-                <View style={styles.userInfo}>
-                  <Image source={{ uri: item.userAvatar }} style={styles.userAvatar} />
-                  <Text style={styles.username}>{item.username}</Text>
-                </View>
-                <TouchableOpacity style={styles.moreButton}>
-                  <Text>•••</Text>
-                </TouchableOpacity>
-              </View>
-              
-              <Image source={{ uri: item.image }} style={styles.feedImage} />
-              
-              <View style={styles.feedItemFooter}>
-                <View style={styles.interactionButtons}>
-                  <TouchableOpacity style={styles.interactionButton}>
-                    <Text style={styles.interactionText}>♥ Like</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.interactionButton}>
-                    <Text style={styles.interactionText}>💬 Comment</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.interactionButton}>
-                    <Text style={styles.interactionText}>↗ Share</Text>
-                  </TouchableOpacity>
-                </View>
-                <Text style={styles.likes}>{item.likes} likes</Text>
-                <Text style={styles.description}>
-                  <Text style={styles.username}>{item.username}</Text> {item.description}
-                </Text>
-              </View>
-            </View>
+            <FeedItem key={item.id} item={item} />
           ))}
         </View>
       </ScrollView>
       
-      <View style={styles.tabBar}>
-        <TouchableOpacity style={styles.tabItem}>
-          <Text style={[styles.tabText, styles.activeTabText]}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem}>
-          <Text style={styles.tabText}>Search</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem}>
-          <View style={styles.addButton}>
-            <Text style={styles.addButtonText}>+</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabItem}>
-          <Text style={styles.tabText}>Likes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={styles.tabItem}
-          onPress={() => navigation.navigate('Profile')}
-        >
-          <Text style={styles.tabText}>Profile</Text>
-        </TouchableOpacity>
-      </View>
+      <TabBar activeTab="home" navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -172,28 +104,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#DCD7C9',
   },
-  welcomeSection: {
+  feedSection: {
     padding: 20,
-    marginTop: 10,
-  },
-  welcomeTitle: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#2C3930',
-    marginBottom: 5,
-  },
-  welcomeSubtitle: {
-    fontSize: 16,
-    color: '#3F4F44',
+    paddingBottom: 100, // Extra padding for tab bar
   },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 15,
-  },
-  featuredSection: {
-    padding: 20,
   },
   sectionTitle: {
     fontSize: 20,
@@ -204,160 +123,10 @@ const styles = StyleSheet.create({
     color: '#A27B5C',
     fontWeight: '500',
   },
-  horizontalScroll: {
-    paddingBottom: 10,
-  },
-  collectionCard: {
-    width: 180,
-    marginRight: 15,
-    borderRadius: 12,
-    overflow: 'hidden',
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  collectionImageContainer: {
-    borderRadius: 12,
-    overflow: 'hidden',
-    marginBottom: 8,
-    position: 'relative',
-  },
-  collectionImage: {
-    width: 180,
-    height: 240,
-    borderRadius: 12,
-  },
-  collectionGradient: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 80,
-    backgroundColor: 'rgba(44, 57, 48, 0.5)',
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
-  },
-  collectionName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#2C3930',
-    marginTop: 4,
-    paddingHorizontal: 10,
-  },
-  collectionAuthor: {
-    fontSize: 14,
-    color: '#A27B5C',
-    paddingHorizontal: 10,
-    paddingBottom: 10,
-  },
-  feedSection: {
-    padding: 20,
-    paddingBottom: 100, // Extra padding for tab bar
-  },
-  feedItem: {
-    marginBottom: 30,
-    borderRadius: 16,
-    backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 15,
-    elevation: 2,
-    overflow: 'hidden',
-  },
-  feedItemHeader: {
-    padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  userInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  userAvatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    marginRight: 8,
-    borderWidth: 2,
-    borderColor: '#A27B5C',
-  },
-  username: {
+  Text: {
     fontWeight: '600',
     color: '#2C3930',
   },
-  moreButton: {
-    padding: 5,
-  },
-  feedImage: {
-    width: '100%',
-    height: 300,
-  },
-  feedItemFooter: {
-    padding: 15,
-  },
-  interactionButtons: {
-    flexDirection: 'row',
-    marginBottom: 10,
-  },
-  interactionButton: {
-    marginRight: 15,
-  },
-  interactionText: {
-    color: '#3F4F44',
-    fontWeight: '500',
-  },
-  likes: {
-    fontWeight: '500',
-    marginBottom: 5,
-    color: '#2C3930',
-  },
-  description: {
-    color: '#3F4F44',
-    lineHeight: 20,
-  },
-  tabBar: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#2C3930',
-    height: 60,
-    paddingBottom: 8,
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tabText: {
-    fontSize: 14,
-    color: '#DCD7C9',
-    fontWeight: '500',
-  },
-  activeTabText: {
-    color: '#A27B5C',
-    fontWeight: '600',
-  },
-  addButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: '#A27B5C',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  addButtonText: {
-    color: 'white',
-    fontSize: 24,
-    fontWeight: '600',
-    marginTop: -2,
-  }
 });
 
 export default HomeScreen;
