@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,13 +7,14 @@ import ProfileScreen from './screens/ProfileScreen';
 import CollectionScreen from './screens/CollectionScreen';
 import { RootStackParamList } from './types/navigation';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
+          id={undefined}
           initialRouteName="Home"
           screenOptions={{
             headerStyle: {
