@@ -170,7 +170,7 @@ const HomeScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEF3E2',
+    backgroundColor: '#DCD7C9',
   },
   welcomeSection: {
     padding: 20,
@@ -179,12 +179,12 @@ const styles = StyleSheet.create({
   welcomeTitle: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#FA812F',
+    color: '#2C3930',
     marginBottom: 5,
   },
   welcomeSubtitle: {
     fontSize: 16,
-    color: '#868e96',
+    color: '#3F4F44',
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -198,10 +198,10 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#FA812F',
+    color: '#2C3930',
   },
   seeAllText: {
-    color: '#FAB12F',
+    color: '#A27B5C',
     fontWeight: '500',
   },
   horizontalScroll: {
@@ -212,6 +212,12 @@ const styles = StyleSheet.create({
     marginRight: 15,
     borderRadius: 12,
     overflow: 'hidden',
+    backgroundColor: '#FFFFFF',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   collectionImageContainer: {
     borderRadius: 12,
@@ -230,19 +236,22 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 80,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(44, 57, 48, 0.5)',
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,
   },
   collectionName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#343a40',
+    color: '#2C3930',
     marginTop: 4,
+    paddingHorizontal: 10,
   },
   collectionAuthor: {
     fontSize: 14,
-    color: '#868e96',
+    color: '#A27B5C',
+    paddingHorizontal: 10,
+    paddingBottom: 10,
   },
   feedSection: {
     padding: 20,
@@ -274,10 +283,12 @@ const styles = StyleSheet.create({
     height: 36,
     borderRadius: 18,
     marginRight: 8,
+    borderWidth: 2,
+    borderColor: '#A27B5C',
   },
   username: {
     fontWeight: '600',
-    color: '#343a40',
+    color: '#2C3930',
   },
   moreButton: {
     padding: 5,
@@ -297,16 +308,16 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   interactionText: {
-    color: '#FA812F',
+    color: '#3F4F44',
     fontWeight: '500',
   },
   likes: {
     fontWeight: '500',
     marginBottom: 5,
-    color: '#343a40',
+    color: '#2C3930',
   },
   description: {
-    color: '#495057',
+    color: '#3F4F44',
     lineHeight: 20,
   },
   tabBar: {
@@ -315,9 +326,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'white',
-    borderTopWidth: 1,
-    borderTopColor: '#F1F3F5',
+    backgroundColor: '#2C3930',
     height: 60,
     paddingBottom: 8,
   },
@@ -328,18 +337,18 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontSize: 14,
-    color: '#868e96',
+    color: '#DCD7C9',
     fontWeight: '500',
   },
   activeTabText: {
-    color: '#FA812F',
+    color: '#A27B5C',
     fontWeight: '600',
   },
   addButton: {
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#FAB12F',
+    backgroundColor: '#A27B5C',
     justifyContent: 'center',
     alignItems: 'center',
   },

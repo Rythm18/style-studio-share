@@ -191,7 +191,7 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEF3E2',
+    backgroundColor: '#DCD7C9',
   },
   profileHeader: {
     padding: 20,
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     padding: 3,
     borderRadius: 50,
     borderWidth: 2,
-    borderColor: '#FAB12F',
+    borderColor: '#A27B5C',
   },
   profileImage: {
     width: 90,
@@ -216,17 +216,17 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#343a40',
+    color: '#2C3930',
     marginBottom: 2,
   },
   username: {
     fontSize: 16,
-    color: '#FA812F',
+    color: '#3F4F44',
     marginBottom: 6,
   },
   userBio: {
     fontSize: 14,
-    color: '#868e96',
+    color: '#A27B5C',
     lineHeight: 20,
   },
   profileStats: {
@@ -245,11 +245,11 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FA812F',
+    color: '#2C3930',
   },
   statLabel: {
     fontSize: 12,
-    color: '#868e96',
+    color: '#A27B5C',
     marginTop: 2,
   },
   actionButtons: {
@@ -259,32 +259,33 @@ const styles = StyleSheet.create({
   },
   editButton: {
     flex: 3,
-    backgroundColor: '#FA812F',
+    backgroundColor: '#3F4F44',
     borderRadius: 8,
     paddingVertical: 10,
     alignItems: 'center',
     marginRight: 10,
   },
   editButtonText: {
-    color: 'white',
+    color: '#DCD7C9',
     fontWeight: '600',
   },
   shareButton: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#FA812F',
+    borderColor: '#3F4F44',
     borderRadius: 8,
     paddingVertical: 10,
     alignItems: 'center',
   },
   shareButtonText: {
-    color: '#FA812F',
+    color: '#3F4F44',
     fontWeight: '600',
   },
   tabs: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0,0,0,0.05)',
+    backgroundColor: '#FFF',
   },
   tab: {
     flex: 1,
@@ -292,15 +293,15 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   tabText: {
-    color: '#868e96',
+    color: '#A27B5C',
     fontWeight: '500',
   },
   activeTab: {
     borderBottomWidth: 2,
-    borderBottomColor: '#FA812F',
+    borderBottomColor: '#2C3930',
   },
   activeTabText: {
-    color: '#FA812F',
+    color: '#2C3930',
     fontWeight: '600',
   },
   imageGrid: {
@@ -322,7 +323,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(44, 57, 48, 0.5)',
     padding: 5,
   },
   imageLikes: {
@@ -354,12 +355,12 @@ const styles = StyleSheet.create({
   collectionName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#343a40',
+    color: '#2C3930',
     marginBottom: 4,
   },
   collectionItemCount: {
     fontSize: 14,
-    color: '#868e96',
+    color: '#A27B5C',
   },
   savedContainer: {
     padding: 20,
@@ -368,11 +369,11 @@ const styles = StyleSheet.create({
   },
   emptyStateText: {
     fontSize: 18,
-    color: '#868e96',
+    color: '#3F4F44',
     marginBottom: 20,
   },
   browseButton: {
-    backgroundColor: '#FAB12F',
+    backgroundColor: '#A27B5C',
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 8,
