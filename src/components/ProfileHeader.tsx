@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { User, Settings, Grid3X3, Bookmark, MessageSquare } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ProfileHeaderProps {
   user: {
