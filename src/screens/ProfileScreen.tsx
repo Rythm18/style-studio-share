@@ -1,9 +1,7 @@
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TabBar from '../components/TabBar';
-import { Grid, BookOpen, Bookmark, Edit, Share, MessageSquare } from 'lucide-react';
 
 const ProfileScreen = ({ navigation }: any) => {
   // State for active tab
@@ -135,16 +133,16 @@ const ProfileScreen = ({ navigation }: any) => {
         {/* Action Buttons */}
         <View style={styles.actionButtons}>
           <TouchableOpacity style={styles.primaryButton}>
-            <Edit size={16} color="#FFFFFF" />
+            <Text style={styles.iconText}>✏️</Text>
             <Text style={styles.primaryButtonText}>Edit Profile</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.secondaryButton}>
-            <MessageSquare size={16} color="#D946EF" />
+            <Text style={styles.iconText}>💬</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.secondaryButton}>
-            <Share size={16} color="#D946EF" />
+            <Text style={styles.iconText}>↗️</Text>
           </TouchableOpacity>
         </View>
         
@@ -154,7 +152,10 @@ const ProfileScreen = ({ navigation }: any) => {
             style={styles.tab}
             onPress={() => setActiveTab('posts')}
           >
-            <Grid size={20} color={activeTab === 'posts' ? '#D946EF' : '#FFFFFF'} />
+            <Text style={{
+              fontSize: 20,
+              color: activeTab === 'posts' ? '#D946EF' : '#FFFFFF'
+            }}>🔲</Text>
             {activeTab === 'posts' && <View style={styles.activeTabIndicator} />}
           </TouchableOpacity>
           
@@ -162,7 +163,10 @@ const ProfileScreen = ({ navigation }: any) => {
             style={styles.tab}
             onPress={() => setActiveTab('collections')}
           >
-            <BookOpen size={20} color={activeTab === 'collections' ? '#D946EF' : '#FFFFFF'} />
+            <Text style={{
+              fontSize: 20,
+              color: activeTab === 'collections' ? '#D946EF' : '#FFFFFF'
+            }}>📚</Text>
             {activeTab === 'collections' && <View style={styles.activeTabIndicator} />}
           </TouchableOpacity>
           
@@ -170,7 +174,10 @@ const ProfileScreen = ({ navigation }: any) => {
             style={styles.tab}
             onPress={() => setActiveTab('saved')}
           >
-            <Bookmark size={20} color={activeTab === 'saved' ? '#D946EF' : '#FFFFFF'} />
+            <Text style={{
+              fontSize: 20,
+              color: activeTab === 'saved' ? '#D946EF' : '#FFFFFF'
+            }}>🔖</Text>
             {activeTab === 'saved' && <View style={styles.activeTabIndicator} />}
           </TouchableOpacity>
         </View>
@@ -210,7 +217,7 @@ const ProfileScreen = ({ navigation }: any) => {
         
         {activeTab === 'saved' && (
           <View style={styles.emptyStateContainer}>
-            <Bookmark size={50} color="#333333" />
+            <Text style={{ fontSize: 40 }}>🔖</Text>
             <Text style={styles.emptyStateTitle}>No saved items yet</Text>
             <Text style={styles.emptyStateText}>Items you save will appear here</Text>
             <TouchableOpacity style={styles.emptyStateButton}>
@@ -455,6 +462,10 @@ const styles = StyleSheet.create({
   emptyStateButtonText: {
     color: '#FFFFFF',
     fontWeight: '600',
+  },
+  iconText: {
+    fontSize: 20,
+    color: '#FFFFFF',
   },
 });
 
