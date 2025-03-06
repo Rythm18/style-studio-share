@@ -1,14 +1,13 @@
+
 export type RootStackParamList = {
   Home: undefined;
   Profile: undefined;
-  Collection: undefined;
+  Collection: { id: number };
+  Search: undefined;
 };
 
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
-    interface NavigatorScreenParams<ParamList> {
-      id?: string;
-    }
   }
 }

@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Home, Search, Heart, User, Plus } from 'lucide-react';
 
 interface TabBarProps {
   activeTab: string;
@@ -8,30 +9,53 @@ interface TabBarProps {
 }
 
 const TabBar = ({ activeTab, navigation }: TabBarProps) => {
+  const iconSize = 24;
+  const iconColor = '#FFFFFF';
+  const activeIconColor = '#D946EF';
+
   return (
     <View style={styles.tabBar}>
       <TouchableOpacity 
         style={styles.tabItem}
         onPress={() => navigation.navigate('Home')}
       >
-        <Text style={[styles.tabText, activeTab === 'home' && styles.activeTabText]}>Home</Text>
+        <Home 
+          size={iconSize} 
+          color={activeTab === 'home' ? activeIconColor : iconColor} 
+        />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.tabItem}>
-        <Text style={styles.tabText}>Search</Text>
+      
+      <TouchableOpacity 
+        style={styles.tabItem}
+        onPress={() => navigation.navigate('Search')}
+      >
+        <Search 
+          size={iconSize} 
+          color={activeTab === 'search' ? activeIconColor : iconColor} 
+        />
       </TouchableOpacity>
+      
       <TouchableOpacity style={styles.tabItem}>
         <View style={styles.addButton}>
-          <Text style={styles.addButtonText}>+</Text>
+          <Plus size={iconSize} color="#FFFFFF" />
         </View>
       </TouchableOpacity>
+      
       <TouchableOpacity style={styles.tabItem}>
-        <Text style={styles.tabText}>Likes</Text>
+        <Heart 
+          size={iconSize} 
+          color={activeTab === 'likes' ? activeIconColor : iconColor} 
+        />
       </TouchableOpacity>
+      
       <TouchableOpacity 
         style={styles.tabItem}
         onPress={() => navigation.navigate('Profile')}
       >
-        <Text style={[styles.tabText, activeTab === 'profile' && styles.activeTabText]}>Profile</Text>
+        <User 
+          size={iconSize} 
+          color={activeTab === 'profile' ? activeIconColor : iconColor} 
+        />
       </TouchableOpacity>
     </View>
   );
@@ -47,20 +71,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     height: 60,
     paddingBottom: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#222222',
   },
   tabItem: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  tabText: {
-    fontSize: 14,
-    color: '#FFFFFF',
-    fontWeight: '500',
-  },
-  activeTabText: {
-    color: '#D946EF',
-    fontWeight: '600',
   },
   addButton: {
     width: 44,
@@ -70,12 +87,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  addButtonText: {
-    color: '#FFFFFF',
-    fontSize: 24,
-    fontWeight: '600',
-    marginTop: -2,
-  }
 });
 
 export default TabBar;

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TabBar from '../components/TabBar';
+import { Grid, BookOpen, Bookmark, Edit, Share, MessageSquare } from 'lucide-react';
 
 const ProfileScreen = ({ navigation }: any) => {
   // State for active tab
@@ -17,6 +18,7 @@ const ProfileScreen = ({ navigation }: any) => {
     following: 567,
     posts: 48,
     profileImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1554147090-e1221a04a025?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1148&q=80'
   };
 
   // Mock grid images
@@ -93,10 +95,18 @@ const ProfileScreen = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Cover Photo */}
+        <View style={styles.coverContainer}>
+          <Image source={{ uri: user.coverImage }} style={styles.coverImage} />
+          <View style={styles.coverGradient} />
+        </View>
+        
+        {/* Profile Header with Avatar */}
         <View style={styles.profileHeader}>
           <View style={styles.profileImageContainer}>
             <Image source={{ uri: user.profileImage }} style={styles.profileImage} />
           </View>
+          
           <View style={styles.profileInfo}>
             <Text style={styles.userName}>{user.name}</Text>
             <Text style={styles.username}>@{user.username}</Text>
@@ -104,51 +114,68 @@ const ProfileScreen = ({ navigation }: any) => {
           </View>
         </View>
         
+        {/* Profile Stats */}
         <View style={styles.profileStats}>
           <View style={styles.statItem}>
             <Text style={styles.statValue}>{user.posts}</Text>
             <Text style={styles.statLabel}>Posts</Text>
           </View>
+          <View style={styles.statDivider} />
           <View style={styles.statItem}>
             <Text style={styles.statValue}>{user.followers}</Text>
             <Text style={styles.statLabel}>Followers</Text>
           </View>
+          <View style={styles.statDivider} />
           <View style={styles.statItem}>
             <Text style={styles.statValue}>{user.following}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
         </View>
         
+        {/* Action Buttons */}
         <View style={styles.actionButtons}>
-          <TouchableOpacity style={styles.editButton}>
-            <Text style={styles.editButtonText}>Edit Profile</Text>
+          <TouchableOpacity style={styles.primaryButton}>
+            <Edit size={16} color="#FFFFFF" />
+            <Text style={styles.primaryButtonText}>Edit Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.shareButton}>
-            <Text style={styles.shareButtonText}>Share</Text>
+          
+          <TouchableOpacity style={styles.secondaryButton}>
+            <MessageSquare size={16} color="#D946EF" />
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.secondaryButton}>
+            <Share size={16} color="#D946EF" />
           </TouchableOpacity>
         </View>
         
+        {/* Content Tabs */}
         <View style={styles.tabs}>
           <TouchableOpacity 
-            style={[styles.tab, activeTab === 'posts' && styles.activeTab]}
+            style={styles.tab}
             onPress={() => setActiveTab('posts')}
           >
-            <Text style={[styles.tabText, activeTab === 'posts' && styles.activeTabText]}>Posts</Text>
+            <Grid size={20} color={activeTab === 'posts' ? '#D946EF' : '#FFFFFF'} />
+            {activeTab === 'posts' && <View style={styles.activeTabIndicator} />}
           </TouchableOpacity>
+          
           <TouchableOpacity 
-            style={[styles.tab, activeTab === 'collections' && styles.activeTab]}
+            style={styles.tab}
             onPress={() => setActiveTab('collections')}
           >
-            <Text style={[styles.tabText, activeTab === 'collections' && styles.activeTabText]}>Collections</Text>
+            <BookOpen size={20} color={activeTab === 'collections' ? '#D946EF' : '#FFFFFF'} />
+            {activeTab === 'collections' && <View style={styles.activeTabIndicator} />}
           </TouchableOpacity>
+          
           <TouchableOpacity 
-            style={[styles.tab, activeTab === 'saved' && styles.activeTab]}
+            style={styles.tab}
             onPress={() => setActiveTab('saved')}
           >
-            <Text style={[styles.tabText, activeTab === 'saved' && styles.activeTabText]}>Saved</Text>
+            <Bookmark size={20} color={activeTab === 'saved' ? '#D946EF' : '#FFFFFF'} />
+            {activeTab === 'saved' && <View style={styles.activeTabIndicator} />}
           </TouchableOpacity>
         </View>
         
+        {/* Tab Content */}
         {activeTab === 'posts' && (
           <View style={styles.imageGrid}>
             {gridImages.map((item) => (
@@ -171,6 +198,7 @@ const ProfileScreen = ({ navigation }: any) => {
                 onPress={() => navigation.navigate('Collection', { id: collection.id })}
               >
                 <Image source={{ uri: collection.image }} style={styles.collectionImage} />
+                <View style={styles.collectionOverlay} />
                 <View style={styles.collectionInfo}>
                   <Text style={styles.collectionName}>{collection.name}</Text>
                   <Text style={styles.collectionItemCount}>{collection.itemCount} items</Text>
@@ -181,10 +209,12 @@ const ProfileScreen = ({ navigation }: any) => {
         )}
         
         {activeTab === 'saved' && (
-          <View style={styles.savedContainer}>
-            <Text style={styles.emptyStateText}>No saved items yet</Text>
-            <TouchableOpacity style={styles.browseButton}>
-              <Text style={styles.browseButtonText}>Browse Collections</Text>
+          <View style={styles.emptyStateContainer}>
+            <Bookmark size={50} color="#333333" />
+            <Text style={styles.emptyStateTitle}>No saved items yet</Text>
+            <Text style={styles.emptyStateText}>Items you save will appear here</Text>
+            <TouchableOpacity style={styles.emptyStateButton}>
+              <Text style={styles.emptyStateButtonText}>Browse Collections</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -198,118 +228,142 @@ const ProfileScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DCD7C9',
+    backgroundColor: '#000000',
+  },
+  coverContainer: {
+    height: 180,
+    position: 'relative',
+  },
+  coverImage: {
+    width: '100%',
+    height: '100%',
+  },
+  coverGradient: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 80,
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   profileHeader: {
-    padding: 20,
     flexDirection: 'row',
-    alignItems: 'center',
+    padding: 20,
+    paddingTop: 10,
   },
   profileImageContainer: {
-    padding: 3,
+    marginTop: -50,
     borderRadius: 50,
-    borderWidth: 2,
-    borderColor: '#A27B5C',
+    borderWidth: 3,
+    borderColor: '#000000',
+    backgroundColor: '#000000',
   },
   profileImage: {
-    width: 90,
-    height: 90,
-    borderRadius: 45,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 3,
+    borderColor: '#D946EF',
   },
   profileInfo: {
     flex: 1,
     marginLeft: 15,
+    justifyContent: 'center',
   },
   userName: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#2C3930',
+    color: '#FFFFFF',
     marginBottom: 2,
   },
   username: {
     fontSize: 16,
-    color: '#3F4F44',
+    color: '#AAAAAA',
     marginBottom: 6,
   },
   userBio: {
     fontSize: 14,
-    color: '#A27B5C',
+    color: '#FFFFFF',
     lineHeight: 20,
   },
   profileStats: {
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 15,
+    justifyContent: 'space-around',
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: 'rgba(0,0,0,0.05)',
-    backgroundColor: 'white',
+    borderColor: '#222222',
   },
   statItem: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
+  },
+  statDivider: {
+    width: 1,
+    backgroundColor: '#222222',
   },
   statValue: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#2C3930',
+    color: '#FFFFFF',
   },
   statLabel: {
     fontSize: 12,
-    color: '#A27B5C',
+    color: '#AAAAAA',
     marginTop: 2,
   },
   actionButtons: {
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 15,
+    justifyContent: 'space-between',
   },
-  editButton: {
+  primaryButton: {
     flex: 3,
-    backgroundColor: '#3F4F44',
+    backgroundColor: '#D946EF',
     borderRadius: 8,
-    paddingVertical: 10,
+    paddingVertical: 12,
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
   },
-  editButtonText: {
-    color: '#DCD7C9',
+  primaryButtonText: {
+    color: '#FFFFFF',
     fontWeight: '600',
+    marginLeft: 8,
   },
-  shareButton: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#3F4F44',
+  secondaryButton: {
+    width: 44,
+    height: 44,
     borderRadius: 8,
-    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: '#D946EF',
+    justifyContent: 'center',
     alignItems: 'center',
-  },
-  shareButtonText: {
-    color: '#3F4F44',
-    fontWeight: '600',
+    marginLeft: 8,
   },
   tabs: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0,0,0,0.05)',
-    backgroundColor: '#FFF',
+    borderBottomColor: '#222222',
   },
   tab: {
-    flex: 1,
     alignItems: 'center',
-    paddingVertical: 15,
+    paddingVertical: 5,
+    position: 'relative',
+    width: 60,
   },
-  tabText: {
-    color: '#A27B5C',
-    fontWeight: '500',
-  },
-  activeTab: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#2C3930',
-  },
-  activeTabText: {
-    color: '#2C3930',
-    fontWeight: '600',
+  activeTabIndicator: {
+    position: 'absolute',
+    bottom: -16,
+    width: 30,
+    height: 3,
+    backgroundColor: '#D946EF',
+    borderRadius: 1.5,
   },
   imageGrid: {
     flexDirection: 'row',
@@ -330,7 +384,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(44, 57, 48, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: 5,
   },
   imageLikes: {
@@ -342,51 +396,64 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   collectionCard: {
-    backgroundColor: 'white',
-    borderRadius: 12,
+    height: 160,
     marginBottom: 15,
+    borderRadius: 12,
     overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 15,
-    elevation: 2,
+    position: 'relative',
   },
   collectionImage: {
     width: '100%',
-    height: 180,
+    height: '100%',
+  },
+  collectionOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.3)',
   },
   collectionInfo: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     padding: 15,
   },
   collectionName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#2C3930',
+    color: '#FFFFFF',
     marginBottom: 4,
   },
   collectionItemCount: {
     fontSize: 14,
-    color: '#A27B5C',
+    color: '#FFFFFF',
+    opacity: 0.8,
   },
-  savedContainer: {
-    padding: 20,
+  emptyStateContainer: {
+    padding: 40,
     alignItems: 'center',
-    paddingTop: 60,
+    justifyContent: 'center',
+  },
+  emptyStateTitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#FFFFFF',
+    marginTop: 16,
+    marginBottom: 8,
   },
   emptyStateText: {
-    fontSize: 18,
-    color: '#3F4F44',
+    fontSize: 14,
+    color: '#AAAAAA',
     marginBottom: 20,
+    textAlign: 'center',
   },
-  browseButton: {
-    backgroundColor: '#A27B5C',
+  emptyStateButton: {
+    backgroundColor: '#D946EF',
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 8,
   },
-  browseButtonText: {
-    color: 'white',
+  emptyStateButtonText: {
+    color: '#FFFFFF',
     fontWeight: '600',
   },
 });

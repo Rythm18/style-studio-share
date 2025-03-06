@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Heart, MessageCircle, Share2 } from 'lucide-react';
 
 interface FeedItemProps {
   item: {
@@ -26,23 +27,30 @@ const FeedItem = ({ item }: FeedItemProps) => {
         </TouchableOpacity>
       </View>
       
-      <Image source={{ uri: item.image }} style={styles.feedImage} />
+      <Image 
+        source={{ uri: item.image }} 
+        style={styles.feedImage}
+        resizeMode="cover" 
+      />
       
       <View style={styles.feedItemFooter}>
         <View style={styles.interactionButtons}>
           <TouchableOpacity style={styles.interactionButton}>
-            <Text style={styles.interactionText}>♥ Like</Text>
+            <Heart size={20} color="#D946EF" style={styles.actionIcon} />
+            <Text style={styles.interactionText}>Like</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.interactionButton}>
-            <Text style={styles.interactionText}>💬 Comment</Text>
+            <MessageCircle size={20} color="#D946EF" style={styles.actionIcon} />
+            <Text style={styles.interactionText}>Comment</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.interactionButton}>
-            <Text style={styles.interactionText}>↗ Share</Text>
+            <Share2 size={20} color="#D946EF" style={styles.actionIcon} />
+            <Text style={styles.interactionText}>Share</Text>
           </TouchableOpacity>
         </View>
         <Text style={styles.likes}>{item.likes} likes</Text>
         <Text style={styles.description}>
-          <Text style={styles.username}>{item.username}</Text> {item.description}
+          <Text style={styles.usernameText}>{item.username}</Text> {item.description}
         </Text>
       </View>
     </View>
@@ -51,15 +59,8 @@ const FeedItem = ({ item }: FeedItemProps) => {
 
 const styles = StyleSheet.create({
   feedItem: {
-    marginBottom: 24,
-    borderRadius: 16,
+    marginBottom: 20,
     backgroundColor: '#111111',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 15,
-    elevation: 2,
-    overflow: 'hidden',
   },
   feedItemHeader: {
     padding: 12,
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
   },
   feedImage: {
     width: '100%',
-    height: 280,
+    height: 400,
   },
   feedItemFooter: {
     padding: 15,
@@ -101,20 +102,29 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   interactionButton: {
-    marginRight: 15,
+    marginRight: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  actionIcon: {
+    marginRight: 5,
   },
   interactionText: {
-    color: '#D946EF',
+    color: '#FFFFFF',
     fontWeight: '500',
   },
   likes: {
-    fontWeight: '500',
+    fontWeight: '600',
     marginBottom: 5,
     color: '#FFFFFF',
   },
   description: {
     color: '#FFFFFF',
     lineHeight: 20,
+  },
+  usernameText: {
+    fontWeight: '600',
+    color: '#FFFFFF',
   },
 });
 

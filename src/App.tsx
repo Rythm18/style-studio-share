@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import CollectionScreen from './screens/CollectionScreen';
+import SearchScreen from './screens/SearchScreen';
 import { RootStackParamList } from './types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -40,6 +41,11 @@ const App = () => {
             name="Collection" 
             component={CollectionScreen} 
             options={{ title: 'Collection' }}
+          />
+          <Stack.Screen 
+            name="Search" 
+            component={SearchScreen} 
+            options={{ title: 'Search' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
