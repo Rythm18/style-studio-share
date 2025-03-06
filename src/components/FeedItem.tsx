@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     marginRight: 8,
     borderWidth: 2,
-    borderColor: '#A27B5C',
+    borderColor: '#F7CFD8',
   },
   username: {
     fontWeight: '600',
-    color: '#2C3930',
+    color: '#73C7C7',
   },
   moreButton: {
     padding: 5,
@@ -101,16 +101,16 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   interactionText: {
-    color: '#3F4F44',
+    color: '#A6F1E0',
     fontWeight: '500',
   },
   likes: {
     fontWeight: '500',
     marginBottom: 5,
-    color: '#2C3930',
+    color: '#73C7C7',
   },
   description: {
-    color: '#3F4F44',
+    color: '#A6F1E0',
     lineHeight: 20,
   },
 });

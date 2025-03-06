@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,24 +23,23 @@ export default {
 				display: ['Manrope', 'sans-serif'],
 			},
 			colors: {
-				// Updated modern color palette
 				primary: {
-					DEFAULT: '#2C3639',
-					light: '#3F4E4F',
-					dark: '#1A1D1E',
+					DEFAULT: '#73C7C7',
+					light: '#A6F1E0',
+					dark: '#5B9F9F',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: '#A27B5C',
-					light: '#DFD3C3',
-					dark: '#876548',
-					foreground: '#FFFFFF'
+					DEFAULT: '#F7CFD8',
+					light: '#FBE4E9',
+					dark: '#E9A8B8',
+					foreground: '#333333'
 				},
 				accent: {
-					DEFAULT: '#DCD7C9',
-					light: '#F5F5F0',
-					dark: '#C2BDB1',
-					foreground: '#2C3639'
+					DEFAULT: '#F4F8D3',
+					light: '#F9FCE9',
+					dark: '#E6EDB5',
+					foreground: '#333333'
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -75,10 +73,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wardrobe: {
-					'primary': '#DCD7C9',
-					'secondary': '#A27B5C',
-					'accent': '#3F4F44',
-					'highlight': '#2C3930',
+					'primary': '#F4F8D3',
+					'secondary': '#F7CFD8',
+					'accent': '#A6F1E0',
+					'highlight': '#73C7C7',
 					'50': '#f8f9fa',
 					'100': '#f1f3f5',
 					'200': '#e9ecef',

@@ -18,9 +18,9 @@ const App = () => {
           initialRouteName="Home"
           screenOptions={{
             headerStyle: {
-              backgroundColor: '#DCD7C9',
+              backgroundColor: '#F4F8D3',
             },
-            headerTintColor: '#2C3930',
+            headerTintColor: '#73C7C7',
             headerTitleStyle: {
               fontWeight: '600',
             },
