@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { Heart, MessageCircle, Share2 } from 'lucide-react';
 
 interface FeedItemProps {
   item: {
@@ -36,15 +34,15 @@ const FeedItem = ({ item }: FeedItemProps) => {
       <View style={styles.feedItemFooter}>
         <View style={styles.interactionButtons}>
           <TouchableOpacity style={styles.interactionButton}>
-            <Heart size={20} color="#D946EF" style={styles.actionIcon} />
+            <Text style={styles.iconText}>❤️</Text>
             <Text style={styles.interactionText}>Like</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.interactionButton}>
-            <MessageCircle size={20} color="#D946EF" style={styles.actionIcon} />
+            <Text style={styles.iconText}>💬</Text>
             <Text style={styles.interactionText}>Comment</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.interactionButton}>
-            <Share2 size={20} color="#D946EF" style={styles.actionIcon} />
+            <Text style={styles.iconText}>↗️</Text>
             <Text style={styles.interactionText}>Share</Text>
           </TouchableOpacity>
         </View>
@@ -126,6 +124,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFFFFF',
   },
+  iconText: {
+    fontSize: 20,
+    marginRight: 5,
+  }
 });
 
 export default FeedItem;
