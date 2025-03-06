@@ -103,7 +103,7 @@ const HomeScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F4F8D3',
+    backgroundColor: '#000000',
   },
   feedSection: {
     padding: 20,
@@ -118,10 +118,10 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#73C7C7',
+    color: '#FFFFFF',
   },
   seeAllText: {
-    color: '#F7CFD8',
+    color: '#D946EF',
     fontWeight: '500',
   },
 });

@@ -22,7 +22,7 @@ const FeedItem = ({ item }: FeedItemProps) => {
           <Text style={styles.username}>{item.username}</Text>
         </View>
         <TouchableOpacity style={styles.moreButton}>
-          <Text>•••</Text>
+          <Text style={styles.moreButtonText}>•••</Text>
         </TouchableOpacity>
       </View>
       
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   feedItem: {
     marginBottom: 24,
     borderRadius: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#111111',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
@@ -77,14 +77,17 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     marginRight: 8,
     borderWidth: 2,
-    borderColor: '#F7CFD8',
+    borderColor: '#D946EF',
   },
   username: {
     fontWeight: '600',
-    color: '#73C7C7',
+    color: '#FFFFFF',
   },
   moreButton: {
     padding: 5,
+  },
+  moreButtonText: {
+    color: '#FFFFFF',
   },
   feedImage: {
     width: '100%',
@@ -101,16 +104,16 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   interactionText: {
-    color: '#A6F1E0',
+    color: '#D946EF',
     fontWeight: '500',
   },
   likes: {
     fontWeight: '500',
     marginBottom: 5,
-    color: '#73C7C7',
+    color: '#FFFFFF',
   },
   description: {
-    color: '#A6F1E0',
+    color: '#FFFFFF',
     lineHeight: 20,
   },
 });

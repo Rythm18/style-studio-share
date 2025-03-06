@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,22 +25,22 @@ export default {
 			},
 			colors: {
 				primary: {
-					DEFAULT: '#73C7C7',
-					light: '#A6F1E0',
-					dark: '#5B9F9F',
+					DEFAULT: '#000000',
+					light: '#333333',
+					dark: '#000000',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: '#F7CFD8',
-					light: '#FBE4E9',
-					dark: '#E9A8B8',
-					foreground: '#333333'
+					DEFAULT: '#D946EF',
+					light: '#E57CF5',
+					dark: '#C02BD9',
+					foreground: '#FFFFFF'
 				},
 				accent: {
-					DEFAULT: '#F4F8D3',
-					light: '#F9FCE9',
-					dark: '#E6EDB5',
-					foreground: '#333333'
+					DEFAULT: '#FFFFFF',
+					light: '#FFFFFF',
+					dark: '#F0F0F0',
+					foreground: '#000000'
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -73,10 +74,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wardrobe: {
-					'primary': '#F4F8D3',
-					'secondary': '#F7CFD8',
-					'accent': '#A6F1E0',
-					'highlight': '#73C7C7',
+					'primary': '#000000',
+					'secondary': '#D946EF',
+					'accent': '#FFFFFF',
+					'highlight': '#D946EF',
 					'50': '#f8f9fa',
 					'100': '#f1f3f5',
 					'200': '#e9ecef',

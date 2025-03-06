@@ -15,13 +15,12 @@ const App = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
-          id={undefined}
           initialRouteName="Home"
           screenOptions={{
             headerStyle: {
-              backgroundColor: '#F4F8D3',
+              backgroundColor: '#000000',
             },
-            headerTintColor: '#73C7C7',
+            headerTintColor: '#FFFFFF',
             headerTitleStyle: {
               fontWeight: '600',
             },
