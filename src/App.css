@@ -14,11 +14,11 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 1em #A27B5Caa);
+  filter: drop-shadow(0 0 1em #F7CFD8aa);
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 1em #3F4F44aa);
+  filter: drop-shadow(0 0 1em #73C7C7aa);
 }
 
 @keyframes logo-spin {
@@ -50,7 +50,7 @@
 }
 
 .read-the-docs {
-  color: #3F4F44;
+  color: #73C7C7;
   font-size: 0.875rem;
 }
 
@@ -61,15 +61,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #DCD7C9;
+  background: #F4F8D3;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A27B5C;
+  background: #F7CFD8;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3F4F44;
+  background: #73C7C7;
 }

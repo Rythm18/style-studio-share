@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, StyleSheet, ScrollView, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -102,7 +103,7 @@ const HomeScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DCD7C9',
+    backgroundColor: '#F4F8D3',
   },
   feedSection: {
     padding: 20,
@@ -117,15 +118,11 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#2C3930',
+    color: '#73C7C7',
   },
   seeAllText: {
-    color: '#A27B5C',
+    color: '#F7CFD8',
     fontWeight: '500',
-  },
-  Text: {
-    fontWeight: '600',
-    color: '#2C3930',
   },
 });
 

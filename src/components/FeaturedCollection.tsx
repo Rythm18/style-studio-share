@@ -60,10 +60,10 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#2C3930',
+    color: '#73C7C7',
   },
   seeAllText: {
-    color: '#A27B5C',
+    color: '#F7CFD8',
     fontWeight: '500',
   },
   horizontalScroll: {
@@ -98,20 +98,20 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 80,
-    backgroundColor: 'rgba(44, 57, 48, 0.5)',
+    backgroundColor: 'rgba(115, 199, 199, 0.5)',
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,
   },
   collectionName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#2C3930',
+    color: '#73C7C7',
     marginTop: 4,
     paddingHorizontal: 10,
   },
   collectionAuthor: {
     fontSize: 14,
-    color: '#A27B5C',
+    color: '#F7CFD8',
     paddingHorizontal: 10,
     paddingBottom: 10,
   },

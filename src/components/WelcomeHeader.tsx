@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
   welcomeTitle: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#2C3930',
+    color: '#73C7C7',
     marginBottom: 5,
   },
   welcomeSubtitle: {
     fontSize: 16,
-    color: '#3F4F44',
+    color: '#A6F1E0',
   },
 });
 
