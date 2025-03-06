@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Home, Search, Heart, User, Plus } from 'lucide-react';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 interface TabBarProps {
   activeTab: string;
@@ -9,7 +8,6 @@ interface TabBarProps {
 }
 
 const TabBar = ({ activeTab, navigation }: TabBarProps) => {
-  const iconSize = 24;
   const iconColor = '#FFFFFF';
   const activeIconColor = '#D946EF';
 
@@ -19,43 +17,51 @@ const TabBar = ({ activeTab, navigation }: TabBarProps) => {
         style={styles.tabItem}
         onPress={() => navigation.navigate('Home')}
       >
-        <Home 
-          size={iconSize} 
-          color={activeTab === 'home' ? activeIconColor : iconColor} 
-        />
+        <Text style={[
+          styles.iconText,
+          { color: activeTab === 'home' ? activeIconColor : iconColor }
+        ]}>
+          🏠
+        </Text>
       </TouchableOpacity>
       
       <TouchableOpacity 
         style={styles.tabItem}
         onPress={() => navigation.navigate('Search')}
       >
-        <Search 
-          size={iconSize} 
-          color={activeTab === 'search' ? activeIconColor : iconColor} 
-        />
+        <Text style={[
+          styles.iconText,
+          { color: activeTab === 'search' ? activeIconColor : iconColor }
+        ]}>
+          🔍
+        </Text>
       </TouchableOpacity>
       
       <TouchableOpacity style={styles.tabItem}>
         <View style={styles.addButton}>
-          <Plus size={iconSize} color="#FFFFFF" />
+          <Text style={styles.iconText}>➕</Text>
         </View>
       </TouchableOpacity>
       
       <TouchableOpacity style={styles.tabItem}>
-        <Heart 
-          size={iconSize} 
-          color={activeTab === 'likes' ? activeIconColor : iconColor} 
-        />
+        <Text style={[
+          styles.iconText,
+          { color: activeTab === 'likes' ? activeIconColor : iconColor }
+        ]}>
+          ❤️
+        </Text>
       </TouchableOpacity>
       
       <TouchableOpacity 
         style={styles.tabItem}
         onPress={() => navigation.navigate('Profile')}
       >
-        <User 
-          size={iconSize} 
-          color={activeTab === 'profile' ? activeIconColor : iconColor} 
-        />
+        <Text style={[
+          styles.iconText,
+          { color: activeTab === 'profile' ? activeIconColor : iconColor }
+        ]}>
+          👤
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -86,6 +92,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#D946EF',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  iconText: {
+    fontSize: 24,
   },
 });
 
