@@ -16,6 +16,7 @@ const App = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
+          id={undefined}
           initialRouteName="Home"
           screenOptions={{
             headerStyle: {
